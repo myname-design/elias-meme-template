@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <!-- ELIAS_MEME_ORIGIN -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elias Meme</title>
+  <style>
+    :root { color-scheme: light dark; font: 12px/1.5 system-ui, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 8px; background: transparent; color: light-dark(#555, #bbb); }
+    figure { position: relative; margin: 0 auto; width: fit-content; max-width: 100%; }
+    img { display: block; width: 180px; height: auto; max-width: 100%; border-radius: 8px; margin: 0 auto; }
+    @media (min-width: 600px) { img { width: 200px; } }
+    [hidden] { display: none !important; }
+    .info-btn {
+      position: absolute; right: 6px; bottom: 6px;
+      width: 22px; height: 22px; border-radius: 50%;
+      border: none; cursor: pointer;
+      background: rgba(0,0,0,0.45); color: #fff;
+      font-size: 13px; line-height: 22px; text-align: center;
+      padding: 0; opacity: 0.7;
+    }
+    .info-btn:hover, .info-btn:focus { opacity: 1; }
+    figcaption { max-width: 440px; margin: 8px auto 0; overflow-wrap: anywhere; text-align: left; font-size: 11px; line-height: 1.6; }
+    a { color: inherit; text-underline-offset: 2px; }
+    p { margin: 0; }
+    #status { text-align: center; }
+  </style>
+</head>
+<body>
+  <p id="status" role="status">正在加载表情包…</p>
+  <figure id="meme" hidden>
+    <img id="image" alt="" referrerpolicy="no-referrer">
+    <button id="info-toggle" class="info-btn" type="button" aria-label="查看来源与版权" aria-expanded="false" title="来源与版权">ⓘ</button>
+    <figcaption id="caption" hidden><a id="source" target="_blank" rel="noopener noreferrer">来源：memecub</a><span> · </span><span id="license"></span><p id="credit"></p><p id="original"></p></figcaption>
+  </figure>
+  <script type="module">/* APP_SCRIPT */</script>
+</body>
+</html>

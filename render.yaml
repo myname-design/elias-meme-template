@@ -1,0 +1,18 @@
+# Deploy from your own fork/template copy into your own Render account.
+# Applying a Blueprint starts the first deploy even with autoDeploy disabled.
+services:
+  - type: web
+    name: elias-meme
+    runtime: node
+    plan: free
+    autoDeploy: false
+    buildCommand: npm ci --include=dev && npm run build && npm prune --omit=dev
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: 24.22.1
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0

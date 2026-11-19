@@ -1,0 +1,23 @@
+name: Validate Elias Meme
+# Manual only: no deployment, no automatic use of private-repository Actions minutes.
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.22.1'
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:ui
+# Real API checks are deliberately excluded to preserve memecub's anonymous quota.
